@@ -1,0 +1,17 @@
+// No. A friend function cannot access private members without an object.
+#include <iostream>
+using namespace std;
+
+class Demo {
+private:
+    int x;
+
+public:
+    Demo(int val) { x = val; }
+
+    friend void show(Demo d);
+};
+
+void show(Demo d) {
+    cout << d.x;
+}
