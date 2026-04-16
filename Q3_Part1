@@ -1,0 +1,21 @@
+// Yes. A friend function can overload operators like += if the object is passed by reference.
+
+
+#include <iostream>
+using namespace std;
+
+
+class Test {
+private:
+    int x;
+
+public:
+    Test(int val) { x = val; }
+
+    friend Test& operator+=(Test &obj, int value);
+};
+
+Test& operator+=(Test &obj, int value) {
+    obj.x += value;
+    return obj;
+}
