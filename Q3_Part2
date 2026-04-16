@@ -1,0 +1,17 @@
+// Yes. A friend function can handle operations between an object and a primitive type.
+#include <stdio.h>
+using namespace std;
+
+class Number {
+private:
+    int value;
+
+public:
+    Number(int v) { value = v; }
+
+    friend Number operator+(const Number &obj, int x);
+};
+
+Number operator+(const Number &obj, int x) {
+    return Number(obj.value + x);
+}
